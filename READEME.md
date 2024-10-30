@@ -16,7 +16,11 @@ absolutely reinventing the wheel with this one, and that's perfectly fine by me.
 
 ## UPDATE LOG:
 
-### 10/30/2024 - First version built
+### 10/29/2024 - First version built
 
 The base implementation of this project is a databse-driven webapp using SQLite. Essentially, it's a persistent database interface tool with three
 different types of functionality: adding, removing, and displaying different "to do" items. The UI is pretty bare-bones, but that's because I built the entire thing during an hour break at work.
+
+### 10/30/2024 - Baby steps!! - added priority categories for different tasks!
+
+Took me a little longer this time, but I updated the database to include a third column called Priority that stores one of three strings (High, Medium, Low) and uses those labels to correctly populate fields in the webapp.
