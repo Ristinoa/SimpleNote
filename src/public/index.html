@@ -9,13 +9,25 @@
 <body>
   <h1>TODO List</h1>
 
-  <!-- Wrapper for input and Add Task button -->
   <div class="task-input-container">
     <input type="text" id="taskInput" placeholder="Enter a task">
+    <select id="prioritySelect">
+      <option value="High">High Priority</option>
+      <option value="Medium">Medium Priority</option>
+      <option value="Low">Low Priority</option>
+    </select>
     <button onclick="addTask()">Add Task</button>
   </div>
-  
-  <ul id="todoList"></ul>
+
+  <!-- Sections for different priority levels -->
+  <h2>High Priority</h2>
+  <ul id="highPriorityList" class="priority-list"></ul>
+
+  <h2>Medium Priority</h2>
+  <ul id="mediumPriorityList" class="priority-list"></ul>
+
+  <h2>Low Priority</h2>
+  <ul id="lowPriorityList" class="priority-list"></ul>
 
   <script src="script.js"></script>
 </body>

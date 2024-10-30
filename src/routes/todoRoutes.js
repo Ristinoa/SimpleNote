@@ -5,17 +5,28 @@ const db = require('../database');
 // Get all TODOs
 router.get('/todos', (req, res) => {
   db.getTodos((err, rows) => {
-    if (err) return res.status(500).send("Error retrieving tasks");
+    if (err) {
+      console.error("Error fetching todos:", err);
+      return res.status(500).json({ error: "Failed to retrieve todos" });
+    }
     res.json(rows);
   });
 });
 
-// Add a new TODO
+// ! 10/30/2024 - modified add method to handle task & priority fields
 router.post('/todos', (req, res) => {
-  const { task } = req.body;
-  db.addTodo(task, (err) => {
-    if (err) return res.status(500).send("Error adding task");
-    res.status(201).send("Task added");
+  const { task, priority } = req.body;
+  
+  if (!task || !priority) {
+    return res.status(400).json({ error: "Task and priority are required" });
+  }
+
+  db.addTodo(task, priority, (err) => {
+    if (err) {
+      console.error("Error adding todo:", err);
+      return res.status(500).json({ error: "Failed to add todo" });
+    }
+    res.status(201).json({ success: true });
   });
 });
 
