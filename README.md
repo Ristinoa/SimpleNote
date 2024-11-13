@@ -33,3 +33,11 @@ Additionally, the creation of a bunch more files for electron use has bricked my
 This is why I am an amateur programmer! I don't understand the workflow in the slightest.
 
 SO! We're gonna do this from the top, and we're gonna do it right.
+
+ROADMAP:
+
+- get electron.js set up again (rebuild the test script)
+- get the initial version of electron working with database integration
+
+- Then, without cluttering the repo with like 80 million .dmg installers, try to get a desktop-launchable executable file produced
+- DO NOT COMMIT WITHOUT CLEARING THE DIST FOLDER. THIS CAUSES A MESS.
