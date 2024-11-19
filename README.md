@@ -53,3 +53,7 @@ changes, if someone wants to run the scripts themselves, they can just perform t
 in the electronapp folder. (I haven't written that documentation yet, I'll get there though).
 
 Making this commit, pushing, then going to see if I set up .gitignore properly or not.
+
+UPDATE: gitignore is properly configured, we are SO back.
+
+Stay tuned for a rebuild of the previous electronapp I had built before I realized I had irreparably trashed that repo version smh.
