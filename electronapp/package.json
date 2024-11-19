@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js", 
+    "electron-start": "electron electron.js" 
   },
   "keywords": [],
   "author": "",
@@ -17,5 +19,27 @@
   "devDependencies": {
     "electron": "^33.2.0",
     "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.example.todoapp",
+    "productName": "TODO App",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron.js",
+      "src/**/*",
+      "data/todo.db",
+      "node_modules/**/*"
+    ],
+    "mac": {
+      "icon": "src/assets/icon.icns"
+    },
+    "win": {
+      "icon": "src/assets/icon.ico"
+    },
+    "linux": {
+      "icon": "src/assets/icon.png"
+    }
   }
 }
