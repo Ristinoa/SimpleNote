@@ -41,3 +41,15 @@ ROADMAP:
 
 - Then, without cluttering the repo with like 80 million .dmg installers, try to get a desktop-launchable executable file produced
 - DO NOT COMMIT WITHOUT CLEARING THE DIST FOLDER. THIS CAUSES A MESS.
+
+### 11/19/2024
+
+This looks incriminating. I HAVE been working on this project this whole time, the problem is that my amateur developer is shining through.
+I have repeatedly had to restart the electron phase of this project since npm install electron creates some MASSIVE files inside of the node_modules
+folder in electronapp. Additionally, dist (the folder where the script that produces the electron executable installer is placed) gets cluttered with dmg files (because I don't delete things because I'm a scrub) and then before I know it there are 3 branches with 1k changes staged. Enfuriating.
+
+What's my solution? .gitignore. I have put pathways to both dist and node_modules in the .gitignore file in the hopes that if git doesn't track those
+changes, if someone wants to run the scripts themselves, they can just perform the electron install themselves, and read appropriate documentation
+in the electronapp folder. (I haven't written that documentation yet, I'll get there though).
+
+Making this commit, pushing, then going to see if I set up .gitignore properly or not.

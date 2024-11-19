@@ -1,0 +1,7 @@
+# Ignore all node modules 
+electronapp/node_modules/
+
+# Ignore all dmg installers in dist folder resultant from electron scripts
+electronapp/dist/
+
+# If this doesn't work I will do evil
