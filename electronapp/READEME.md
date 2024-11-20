@@ -4,17 +4,17 @@
 
 ## How do I launch the test version if I've cloned the repo?
 
-Navigate to this folder in your terminal and enter:
+Navigate to this folder (SimpleNote/electronapp) in your terminal and enter:
 
 > npm install electron --save-dev
 
 The scripts to run the base app are already in place. This install will add all needed files to node_modules.
 
-To run the script (and see the electron version of this app) use:
+To run the script use:
 
 > npm run electron-start
 
-This will launch an electron window with the app in it.
+This will launch an electron window with the app in it complete with DB functionality.
 
 ## TODO: Implement dmg production
 

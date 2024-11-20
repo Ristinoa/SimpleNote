@@ -33,7 +33,7 @@
       "node_modules/**/*"
     ],
     "mac": {
-      "icon": "src/assets/icon.icns"
+      "icon": "src/V2.icns"
     },
     "win": {
       "icon": "src/assets/icon.ico"
