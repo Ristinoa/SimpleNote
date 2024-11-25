@@ -1,15 +1,15 @@
 {
-  "name": "plannerapp",
+  "name": "simplenote",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A simple To-do list application.",
+  "main": "electron.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/server.js", 
-    "electron-start": "electron electron.js" 
+    "start": "node src/server.js",
+    "electron-start": "electron electron.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "AJ Ristino",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.3",
@@ -17,12 +17,13 @@
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
+    "7zip-bin": "^5.2.0",
     "electron": "^33.2.0",
     "electron-builder": "^25.1.8"
   },
   "build": {
     "appId": "com.example.todoapp",
-    "productName": "TODO App",
+    "productName": "Simple Note",
     "directories": {
       "output": "dist"
     },
@@ -30,10 +31,14 @@
       "electron.js",
       "src/**/*",
       "data/todo.db",
+      "dist/**/*",
       "node_modules/**/*"
     ],
     "mac": {
-      "icon": "src/V2.icns"
+      "type": "development",
+      "icon": "src/V2.icns",
+      "artifactName": "${productName}-${version}-${arch}.dmg",
+      "target": "dmg"
     },
     "win": {
       "icon": "src/assets/icon.ico"

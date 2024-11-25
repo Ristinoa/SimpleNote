@@ -1,11 +1,16 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
-const startServer = require('./src/server'); // Adjusted path to reflect /src folder
+const startServer = require('./src/server');
 
 let mainWindow;
 
-// Start the Express server by calling the function
+// Start the Express server
 startServer();
+
+app.on('ready', () => {
+  require('./src/database'); // Initialize the database
+  createWindow();
+});
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -14,17 +19,16 @@ function createWindow() {
     webPreferences: {
       contextIsolation: true,
       nodeIntegration: false,
-      preload: path.join(__dirname, 'src', 'preload.js')
-    }
+      preload: path.join(__dirname, 'src', 'preload.js'),
+    },
   });
 
   mainWindow.loadURL('http://localhost:3000');
+
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
 }
-
-app.on('ready', createWindow);
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();

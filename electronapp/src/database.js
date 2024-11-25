@@ -1,9 +1,30 @@
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./data/todo.db'); // upgrades, people! UPGRADES!!
+const { app } = require('electron');
+const path = require('path');
+const fs = require('fs');
+
+// Determine database path
+const dbPath = path.join(app.getPath('userData'), 'todo.db');
+console.log('Database Path:', dbPath);
+
+// Ensure the database file exists in the user data directory
+if (!fs.existsSync(dbPath)) {
+  const defaultDbPath = path.join(__dirname, '../data/todo.db'); // Default DB in source
+  if (fs.existsSync(defaultDbPath)) {
+    fs.mkdirSync(path.dirname(dbPath), { recursive: true });
+    fs.copyFileSync(defaultDbPath, dbPath);
+  }
+}
+
+const db = new sqlite3.Database(dbPath, (err) => {
+  if (err) {
+    console.error('Error opening database:', err.message);
+  } else {
+    console.log('Connected to the SQLite database.');
+  }
+});
 
 // Initialize the TODO table
-// ! 10/30/2024 - rebuilt database to add priority field
-
 db.serialize(() => {
   db.run(`CREATE TABLE IF NOT EXISTS todos (
     id INTEGER PRIMARY KEY,
@@ -12,7 +33,7 @@ db.serialize(() => {
   )`);
 });
 
-// Query all elements from todo list
+// Export the necessary functions
 const getTodos = (callback) => {
   db.all("SELECT * FROM todos", callback);
 };
@@ -21,9 +42,9 @@ const addTodo = (task, priority, callback) => {
   db.run("INSERT INTO todos (task, priority) VALUES (?, ?)", [task, priority], callback);
 };
 
-// Database action for deleting an element from the todo list
 const deleteTodo = (id, callback) => {
   db.run("DELETE FROM todos WHERE id = ?", [id], callback);
 };
 
+// Exporting functions for use in routes
 module.exports = { getTodos, addTodo, deleteTodo };
