@@ -67,3 +67,19 @@ Thankfully, I can now use developer tools within electron to see that 80% of the
 It's an html page that can write to the database... and nothing else; this is a problem for tomorrow!
 
 Functionality of SimpleNote to come.
+
+### 12/15/2024
+
+Okay I did that thing I said I wasn't going to do and continued working without updating the dev log or actually committing my changes.
+
+Good news! Now the dmg is fully downloadable, and the backend is being properly packaged.
+
+The issue that I resolved was connected to the production version of the app trying to use api routes built for the local server, which is used in the dev build. I modified server.js to handle the production build's api routes, and tweaked a few other files.
+
+If you have proper installs, then you can access the first build of SimpleNote by navigating to the /electronapp/ folder and typing npx electron-builder --mac.
+
+I've only really been testing with the mac production since that's the OS I'm running (sue me, the computer was a gift).
+
+Next I want to try my hand at creating recurring reminders, so creating an 'advanced' tab that repeatedly adds entries to the database.
+
+For now though, we've hit benchmark one... and it only took months to get here. I am SO good at computer science.
