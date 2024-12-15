@@ -4,7 +4,10 @@ const startServer = require('./src/server');
 
 let mainWindow;
 
-// Start the Express server
+// Determine whether we're in development or production mode
+const isDevelopment = process.env.NODE_ENV === 'development' || !app.isPackaged;
+
+// Start the server in both development and production modes
 startServer();
 
 app.on('ready', () => {
@@ -19,11 +22,18 @@ function createWindow() {
     webPreferences: {
       contextIsolation: true,
       nodeIntegration: false,
-      preload: path.join(__dirname, 'src', 'preload.js'),
     },
   });
 
-  mainWindow.loadURL('http://localhost:3000');
+  if (isDevelopment) {
+    // Development mode: Use localhost
+    console.log('Running in development mode: Loading from localhost');
+    mainWindow.loadURL('http://localhost:3000');
+  } else {
+    // Production mode: Load static files from the app package
+    console.log('Running in production mode: Loading from packaged app');
+    mainWindow.loadFile(path.join(__dirname, 'src', 'public', 'index.html'));
+  }
 
   mainWindow.on('closed', () => {
     mainWindow = null;

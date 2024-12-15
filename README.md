@@ -49,7 +49,7 @@ I have repeatedly had to restart the electron phase of this project since npm in
 folder in electronapp. Additionally, dist (the folder where the script that produces the electron executable installer is placed) gets cluttered with dmg files (because I don't delete things because I'm a scrub) and then before I know it there are 3 branches with 1k changes staged. Enfuriating.
 
 What's my solution? .gitignore. I have put pathways to both dist and node_modules in the .gitignore file in the hopes that if git doesn't track those
-changes, if someone wants to run the scripts themselves, they can just perform the electron install themselves, and read appropriate documentation
+changes, if someone wants to run the scripts themselves, they can just perform the electron install, and read appropriate documentation
 in the electronapp folder. (I haven't written that documentation yet, I'll get there though).
 
 Making this commit, pushing, then going to see if I set up .gitignore properly or not.
@@ -57,3 +57,13 @@ Making this commit, pushing, then going to see if I set up .gitignore properly o
 UPDATE: gitignore is properly configured, we are SO back.
 
 Stay tuned for a rebuild of the previous electronapp I had built before I realized I had irreparably trashed that repo version smh.
+
+### 11/25/2024
+
+Got .dmg file to install to Apps and executable to run without error today.
+
+Thankfully, I can now use developer tools within electron to see that 80% of the backend functionality didn't get packaged properly.
+
+It's an html page that can write to the database... and nothing else; this is a problem for tomorrow!
+
+Functionality of SimpleNote to come.

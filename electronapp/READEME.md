@@ -18,3 +18,5 @@ This will launch an electron window with the app in it complete with DB function
 
 ## TODO: Implement dmg production
 
+
+

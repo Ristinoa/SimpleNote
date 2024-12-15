@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/server.js",
-    "electron-start": "electron electron.js"
+    "electron-start": "NODE_ENV=development electron ."
   },
   "keywords": [],
   "author": "AJ Ristino",
@@ -30,8 +30,7 @@
     "files": [
       "electron.js",
       "src/**/*",
-      "data/todo.db",
-      "dist/**/*",
+      "routes/**/*",
       "node_modules/**/*"
     ],
     "mac": {
@@ -45,6 +44,7 @@
     },
     "linux": {
       "icon": "src/assets/icon.png"
-    }
+    },
+    "asar": false
   }
 }
