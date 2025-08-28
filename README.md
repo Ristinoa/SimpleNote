@@ -76,7 +76,9 @@ Good news! Now the dmg is fully downloadable, and the backend is being properly 
 
 The issue that I resolved was connected to the production version of the app trying to use api routes built for the local server, which is used in the dev build. I modified server.js to handle the production build's api routes, and tweaked a few other files.
 
-If you have proper installs, then you can access the first build of SimpleNote by navigating to the /electronapp/ folder and typing npx electron-builder --mac.
+If you have proper installs, then you can access the first build of SimpleNote by navigating to the /electronapp/ folder and typing:
+
+> npx electron-builder --mac
 
 I've only really been testing with the mac production since that's the OS I'm running (sue me, the computer was a gift).
 

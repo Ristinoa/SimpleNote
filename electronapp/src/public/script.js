@@ -78,5 +78,12 @@ async function deleteTask(id) {
   }
 }
 
+// Listen for Enter key press in the task input field
+taskInput.addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    addTask();
+  }
+});
+
 // Initial load
 loadTodos();
